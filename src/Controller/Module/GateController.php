@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GateController extends AbstractController
 {
+
     /**
      * @param Request $request
      * @param array   $moduleSettings
@@ -26,11 +27,11 @@ class GateController extends AbstractController
      */
     public function mainAction(Request $request, array $moduleSettings): Response
     {
+        $this->do = $request->get('do');
 
         // Compile
         return $this->render('@Countrygate/module/gate.html.twig', [
             'tpl' => 'tpl',
         ]);
     }
-
 }
