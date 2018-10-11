@@ -4,3 +4,4 @@ services:
     class: AaProjects\Countrygate\Service\SessionGate
     arguments:
       - "@request_stack"
+    public: true
