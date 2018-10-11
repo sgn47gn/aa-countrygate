@@ -1,5 +1,5 @@
 {
-  "name":"aa_projects/country_gate",
+  "name":"aa-projects/country_gate",
   "description":"Nice Contao Bundle",
   "type":"contao-bundle",
   "license":"proprietary",
@@ -25,10 +25,10 @@
   },
   "autoload":{
     "psr-4": {
-      "sgn47gn\\Countrygate\\": "src/"
+      "AaProjects\\Countrygate\\": "src/"
     }
   },
   "extra":{
-    "contao-manager-plugin": "sgn47gn\\Countrygate\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "AaProjects\\Countrygate\\ContaoManager\\Plugin"
   }
 }

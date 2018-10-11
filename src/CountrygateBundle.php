@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
-namespace sgn47gn\Countrygate;
+namespace AaProjects\Countrygate;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
