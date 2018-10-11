@@ -5,3 +5,12 @@ services:
     arguments:
       - "@request_stack"
     public: true
+
+  ## Form Type Request Token
+  countrygate.form.type.request_token:
+    class: AaProjects\Countrygate\Form\RequestTokenType
+    arguments:
+    - "@security.csrf.token_manager"
+    - "%contao.csrf_token_name%"
+    tags:
+    - { name: 'form.type' }

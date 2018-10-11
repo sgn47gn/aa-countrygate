@@ -11,8 +11,16 @@ declare(strict_types=1);
 
 namespace AaProjects\Countrygate;
 
+use AaProjects\Countrygate\DependencyInjection\Compiler\MakeServicePublicPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CountrygateBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new MakeServicePublicPass());
+    }
 }
