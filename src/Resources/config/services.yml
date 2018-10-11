@@ -1,7 +1,6 @@
 services:
-
   ## Session Handling Gate
-  aa_countrygate.session_gate:
+  countrygate.session_gate:
     class: sgn47gn\Countrygate\Service\SessionGate
     arguments:
       - "@request_stack"
