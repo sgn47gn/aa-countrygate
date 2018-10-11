@@ -9,13 +9,13 @@ declare(strict_types=1);
  * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
-namespace sgn47gn\Countrygate\ContaoManager;
+namespace AaProjects\Countrygate\ContaoManager;
 
+use AaProjects\Countrygate\CountrygateBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use sgn47gn\Countrygate\CountrygateBundle;
 
 class Plugin implements BundlePluginInterface
 {

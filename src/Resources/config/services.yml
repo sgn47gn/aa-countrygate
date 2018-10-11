@@ -1,0 +1,6 @@
+services:
+  ## Session Handling Gate
+  countrygate.session_gate:
+    class: AaProjects\Countrygate\Service\SessionGate
+    arguments:
+      - "@request_stack"

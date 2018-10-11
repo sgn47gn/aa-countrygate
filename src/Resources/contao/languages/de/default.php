@@ -9,10 +9,5 @@ declare(strict_types=1);
  * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
-namespace AaProjects\Countrygate;
-
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class CountrygateBundle extends Bundle
-{
-}
+$GLOBALS['TL_LANG']['FMD']['countrygate'] = ['AA - Module'];
+$GLOBALS['TL_LANG']['FMD']['cg_gate'] = ['Schranke', 'Zeigt das Modul an.'];
