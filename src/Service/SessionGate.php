@@ -11,10 +11,9 @@
 
 namespace sgn47gn\Countrygate\Service;
 
-
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class Gate
+class SessionGate
 {
     /** @var string  */
     const SESSION_KEY = 'session.gate';
