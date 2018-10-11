@@ -1,11 +1,12 @@
 <?php
-/**
- * GIT SCHRANKEN-MODUL for Contao Open Source CMS
+
+declare(strict_types=1);
+
+/*
+ * Countrygate Bundle, 47GradNord - Agentur für Internetlösungen
  *
- * Copyright (C) 2018 47GradNord - Agentur für Internetlösungen
- *
- * @license    commercial
- * @author     Holger Neuner
+ * @copyright  Copyright (c) 2008-2018, 47GradNord - Agentur für Internetlösungen
+ * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
 $GLOBALS['TL_LANG']['FMD']['countrygate'] = ['AA - Module'];

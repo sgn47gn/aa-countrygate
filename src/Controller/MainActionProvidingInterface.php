@@ -1,9 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: holger
- * Date: 08.10.18
- * Time: 11:11
+
+declare(strict_types=1);
+
+/*
+ * Countrygate Bundle, 47GradNord - Agentur für Internetlösungen
+ *
+ * @copyright  Copyright (c) 2008-2018, 47GradNord - Agentur für Internetlösungen
+ * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
 namespace AaProjects\Countrygate\Controller;
@@ -20,5 +23,4 @@ interface MainActionProvidingInterface
      * @return Response
      */
     public function mainAction(Request $request, array $moduleSettings): Response;
-
 }

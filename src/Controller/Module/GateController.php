@@ -1,16 +1,15 @@
 <?php
-/**
- * GIT SCHRANKEN-MODUL for Contao Open Source CMS
+
+declare(strict_types=1);
+
+/*
+ * Countrygate Bundle, 47GradNord - Agentur für Internetlösungen
  *
- * Copyright (C) 2018 47GradNord - Agentur für Internetlösungen
- *
- * @license    commercial
- * @author     Holger Neuner
+ * @copyright  Copyright (c) 2008-2018, 47GradNord - Agentur für Internetlösungen
+ * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
-
 namespace AaProjects\Countrygate\Controller\Module;
-
 
 use AaProjects\Countrygate\Controller\AbstractController;
 use AaProjects\Countrygate\Service\SessionGate;
@@ -37,7 +36,8 @@ class GateController extends AbstractController
 
         $this->sessionGate = $this->get('aa_countrygate.session_gate');
 
-        dump($this->sessionGate->getSession()); exit;
+        dump($this->sessionGate->getSession());
+        exit;
 
         // Compile
         return $this->render('@Countrygate/module/gate.html.twig', [

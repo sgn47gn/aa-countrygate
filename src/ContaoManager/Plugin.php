@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace AaProjects\Countrygate\ContaoManager;
 
+use AaProjects\Countrygate\CountrygateBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use AaProjects\Countrygate\CountrygateBundle;
 
 class Plugin implements BundlePluginInterface
 {
