@@ -33,12 +33,15 @@ class CountrygateExtension extends Extension implements PrependExtensionInterfac
     }
 
     /**
-     * ! ! ! LOAD THE WORKFLOW HERE ! ! !
-     *
-     * @param ContainerBuilder $container
+    * @param ContainerBuilder $container
      */
     public function prepend(ContainerBuilder $container)
     {
+        $formExtension = $container->getExtensionConfig('form');
+        if($formExtension) {
+            return;
+        }
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('framework.yml');
     }
