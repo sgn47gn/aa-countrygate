@@ -42,7 +42,7 @@ class Module extends \Contao\Module
         $container = System::getContainer();
         $request = $container->get('request_stack')->getCurrentRequest();
 
-        $class = 'sgn47gn\\Countrygate\\Controller\\Module\\' . Container::camelize(str_replace('cg_', '', $this->type)) . 'Controller';
+        $class = 'AaProjects\\Countrygate\\Controller\\Module\\' . Container::camelize(str_replace('cg_', '', $this->type)) . 'Controller';
 
         $controller = new $class();
 

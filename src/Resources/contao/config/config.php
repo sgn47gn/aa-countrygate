@@ -12,4 +12,4 @@ declare(strict_types=1);
 /*
  * Frontend Module
  */
-$GLOBALS['FE_MOD']['countrygate']['cg_gate'] = 'sgn47gn\Countrygate\Proxy\Module';
+$GLOBALS['FE_MOD']['countrygate']['cg_gate'] = 'AaProjects\Countrygate\Proxy\Module';
