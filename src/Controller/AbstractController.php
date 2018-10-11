@@ -11,7 +11,10 @@ declare(strict_types=1);
 
 namespace AaProjects\Countrygate\Controller;
 
+use AaProjects\Countrygate\Form\RequestTokenType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -21,4 +24,15 @@ abstract class AbstractController extends Controller implements MainActionProvid
      * {@inheritdoc}
      */
     abstract public function mainAction(Request $request, array $moduleSettings): Response;
+
+    /**
+     * @param string $name
+     *
+     * @return FormBuilderInterface
+     */
+    protected function createFormBuilderForContao(string $name): FormBuilderInterface
+    {
+        return $this->get('form.factory')->createNamedBuilder($name, FormType::class)
+            ->add('REQUEST_TOKEN', RequestTokenType::class);
+    }
 }

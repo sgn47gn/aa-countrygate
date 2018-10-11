@@ -36,9 +36,6 @@ class GateController extends AbstractController
 
         $this->sessionGate = $this->get('countrygate.session_gate');
 
-        dump($this->sessionGate->getSession());
-        exit;
-
         // Compile
         return $this->render('@Countrygate/module/gate.html.twig', [
             'tpl' => 'tpl',
