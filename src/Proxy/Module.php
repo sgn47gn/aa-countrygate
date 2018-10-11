@@ -9,7 +9,7 @@
  */
 
 
-namespace sgn47gn\Countrygate\Proxy;
+namespace AaProjects\Countrygate\Proxy;
 
 
 use Contao\BackendTemplate;

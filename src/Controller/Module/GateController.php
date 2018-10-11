@@ -9,11 +9,11 @@
  */
 
 
-namespace sgn47gn\Countrygate\Controller\Module;
+namespace AaProjects\Countrygate\Controller\Module;
 
 
-use sgn47gn\Countrygate\Controller\AbstractController;
-use sgn47gn\Countrygate\Service\SessionGate;
+use AaProjects\Countrygate\Controller\AbstractController;
+use AaProjects\Countrygate\Service\SessionGate;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

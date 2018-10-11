@@ -6,7 +6,7 @@
  * Time: 11:11
  */
 
-namespace sgn47gn\Countrygate\Controller;
+namespace AaProjects\Countrygate\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

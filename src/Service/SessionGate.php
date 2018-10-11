@@ -9,7 +9,7 @@
  */
 
 
-namespace sgn47gn\Countrygate\Service;
+namespace AaProjects\Countrygate\Service;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 

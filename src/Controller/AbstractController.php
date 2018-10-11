@@ -9,7 +9,7 @@
  */
 
 
-namespace sgn47gn\Countrygate\Controller;
+namespace AaProjects\Countrygate\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
