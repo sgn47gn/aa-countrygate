@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace AaProjects\Countrygate;
 
+use AaProjects\Countrygate\DependencyInjection\Compiler\MakeServicePublicPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -20,7 +21,6 @@ class CountrygateBundle extends Bundle
     {
         parent::build($container);
 
-        $definition = $container->getDefinition('form.factory');
-        $definition->setPublic(true);
+        $container->addCompilerPass(new MakeServicePublicPass());
     }
 }
