@@ -34,7 +34,7 @@ class GateController extends AbstractController
     {
         $this->do = $request->get('do');
 
-        $this->sessionGate = $this->get('aa_countrygate.session_gate');
+        $this->sessionGate = $this->get('countrygate.session_gate');
 
         dump($this->sessionGate->getSession());
         exit;
