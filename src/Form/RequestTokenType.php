@@ -58,7 +58,7 @@ class RequestTokenType extends HiddenType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data' => $this->tokenManager->getToken($this->tokenName)->getValue(),
+            'data' =>  '{{request_token}}',
         ]);
     }
 

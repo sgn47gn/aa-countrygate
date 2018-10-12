@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace AaProjects\Countrygate\Controller;
 
 use AaProjects\Countrygate\Form\RequestTokenType;
+use Contao\PageModel;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -55,14 +56,60 @@ abstract class AbstractController extends Controller implements MainActionProvid
         );
     }
 
+    /**
+     * @param int    $pageId
+     * @param string $parameter
+     *
+     * @return RedirectResponse
+     */
+    protected function redirectToPage(int $pageId, string $parameter = ''): RedirectResponse
+    {
+        /** @var PageModel $page */
+        $page = PageModel::findById($pageId);
+
+        if (null === $page) {
+            return false;
+        }
+
+        $url = $page->getAbsoluteUrl();
+
+        if ('' !== $parameter) {
+            $url = $url . '?' . $parameter;
+        }
+
+        return new RedirectResponse(
+            $url
+        );
+    }
+
+    /**
+     * @return array
+     */
     protected function getAvailableCountrys()
     {
-        foreach($GLOBALS['TL_AA_COUNTRYS'] as $value)
+        $r = [];
+
+        foreach($GLOBALS['TL_AA_COUNTRYS'] as $key => $value)
         {
-            dump($value);
+            $r[$value['label'][$this->getLanguage()]] = $key ;
         }
-        exit;
 
+        return $r;
+    }
 
+    /**
+     * @return mixed
+     */
+    protected function getRootFallbackLanguage()
+    {
+        return $GLOBALS['objPage']->rootFallbackLanguage;
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getLanguage()
+    {
+        return $GLOBALS['objPage']->language;
     }
 }
