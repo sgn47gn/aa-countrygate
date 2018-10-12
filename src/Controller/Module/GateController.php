@@ -37,7 +37,7 @@ class GateController extends AbstractController
      */
     private static $steps = [
         'select' => 'select',
-        'confirm' => 'confirm'
+        'confirm' => 'confirm',
     ];
 
     /**
@@ -68,7 +68,6 @@ class GateController extends AbstractController
         $formSelectCountry = $formSelectCountry->handleRequest($request);
 
         if ($formSelectCountry->isSubmitted() && $formSelectCountry->isValid()) {
-
             $session['country'] = $formSelectCountry->getData()['country'];
             $this->sessionGate->setSession($session);
 
@@ -81,11 +80,10 @@ class GateController extends AbstractController
         $formConfirmDeOthers = $formConfirmDeOthers->handleRequest($request);
 
         if ($formConfirmDeOthers->isSubmitted() && $formConfirmDeOthers->isValid()) {
-
             $session['passed'] = true;
             $this->sessionGate->setSession($session);
-            return $this->redirectToPage((int)$moduleSettings['jumpToGatePassed']);
 
+            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
         }
 
         // Handle Form Confirm US
@@ -94,12 +92,11 @@ class GateController extends AbstractController
         $formConfirmUs = $formConfirmUs->handleRequest($request);
 
         if ($formConfirmUs->isSubmitted() && $formConfirmUs->isValid()) {
-
-            if($formConfirmUs->getData()['confirm_check1'] && $formConfirmUs->getData()['confirm_check2'])
-            {
+            if ($formConfirmUs->getData()['confirm_check1'] && $formConfirmUs->getData()['confirm_check2']) {
                 $session['passed'] = true;
                 $this->sessionGate->setSession($session);
-                return $this->redirectToPage((int)$moduleSettings['jumpToGatePassed']);
+
+                return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
             }
         }
 
@@ -109,10 +106,10 @@ class GateController extends AbstractController
         $formConfirmCaAuJp = $formConfirmCaAuJp->handleRequest($request);
 
         if ($formConfirmCaAuJp->isSubmitted() && $formConfirmCaAuJp->isValid()) {
-
             $session['passed'] = true;
             $this->sessionGate->setSession($session);
-            return $this->redirectToPage((int)$moduleSettings['jumpToGatePassed']);
+
+            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
         }
 
         // Compile
@@ -120,26 +117,27 @@ class GateController extends AbstractController
             'tpl' => 'tpl',
             'currentStep' => $this->autoItem,
             'formSelectCountry' => ('select' === $this->autoItem) ? $formSelectCountry->createView() : false,
-            'formConfirmDeOthers' => ($session['country'] == 'de' || $session['country'] == 'others') ? $formConfirmDeOthers->createView() : false,
-            'formConfirmUs' => ($session['country'] == 'us') ? $formConfirmUs->createView() : false,
-            'formConfirmCaAuJp' => ($session['country'] == 'ca' || $session['country'] == 'au' || $session['country'] == 'jp') ? $formConfirmCaAuJp->createView() : false,
-            'select' =>  $this->getModuleTextContent('select', $moduleSettings),
-            'disclaimer' =>  $this->getModuleTextContent('disclaimer', $moduleSettings),
-            'disclaimer_us' =>  $this->getModuleTextContent('disclaimer_us', $moduleSettings),
-            'disclaimer_us_checkbox_1' =>  $this->getModuleTextContent('disclaimer_us_checkbox_1', $moduleSettings),
-            'disclaimer_us_checkbox_2' =>  $this->getModuleTextContent('disclaimer_us_checkbox_2', $moduleSettings),
-            'disclaimer_ca_au_jp' =>  $this->getModuleTextContent('disclaimer_ca_au_jp', $moduleSettings),
+            'formConfirmDeOthers' => ('de' === $session['country'] || 'others' === $session['country']) ? $formConfirmDeOthers->createView() : false,
+            'formConfirmUs' => ('us' === $session['country']) ? $formConfirmUs->createView() : false,
+            'formConfirmCaAuJp' => ('ca' === $session['country'] || 'au' === $session['country'] || 'jp' === $session['country']) ? $formConfirmCaAuJp->createView() : false,
+            'select' => $this->getModuleTextContent('select', $moduleSettings),
+            'disclaimer' => $this->getModuleTextContent('disclaimer', $moduleSettings),
+            'disclaimer_us' => $this->getModuleTextContent('disclaimer_us', $moduleSettings),
+            'disclaimer_us_checkbox_1' => $this->getModuleTextContent('disclaimer_us_checkbox_1', $moduleSettings),
+            'disclaimer_us_checkbox_2' => $this->getModuleTextContent('disclaimer_us_checkbox_2', $moduleSettings),
+            'disclaimer_ca_au_jp' => $this->getModuleTextContent('disclaimer_ca_au_jp', $moduleSettings),
         ]);
     }
 
     /**
      * @param string $label
-     * @param array $moduleSettings
+     * @param array  $moduleSettings
+     *
      * @return string
      */
     protected function getModuleTextContent(string $label, array $moduleSettings)
     {
-        return \StringUtil::encodeEmail($moduleSettings['cg_'.$this->getLanguage().'_'.$label]);
+        return \StringUtil::encodeEmail($moduleSettings['cg_' . $this->getLanguage() . '_' . $label]);
     }
 
     /**
@@ -157,10 +155,10 @@ class GateController extends AbstractController
             'choices' => $this->getAvailableCountrys(),
         ]);
 
-        $form->add('save', SubmitType::class, array(
+        $form->add('save', SubmitType::class, [
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_save'],
-            'attr' => array('class' => 'save'),
-        ));
+            'attr' => ['class' => 'save'],
+        ]);
 
         return $form;
     }
@@ -174,10 +172,10 @@ class GateController extends AbstractController
         $form = $this->createFormBuilderForContao('confirm_de_others');
         $form->add('next', HiddenType::class, ['data' => 'confirm']);
 
-        $form->add('accept', SubmitType::class, array(
+        $form->add('accept', SubmitType::class, [
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
-            'attr' => array('class' => 'save'),
-        ));
+            'attr' => ['class' => 'save'],
+        ]);
 
         return $form;
     }
@@ -191,22 +189,20 @@ class GateController extends AbstractController
         $form = $this->createFormBuilderForContao('confirm_us');
         $form->add('next', HiddenType::class, ['data' => 'confirm']);
 
-
-        $form->add('confirm_check1', CheckboxType::class, array(
-            'label'    => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
-            'required' => true,
-        ));
-
-        $form->add('confirm_check2', CheckboxType::class, array(
-            'label'    => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
-            'required' => true,
-        ));
-
-
-        $form->add('accept', SubmitType::class, array(
+        $form->add('confirm_check1', CheckboxType::class, [
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
-            'attr' => array('class' => 'save'),
-        ));
+            'required' => true,
+        ]);
+
+        $form->add('confirm_check2', CheckboxType::class, [
+            'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
+            'required' => true,
+        ]);
+
+        $form->add('accept', SubmitType::class, [
+            'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
+            'attr' => ['class' => 'save'],
+        ]);
 
         return $form;
     }
@@ -220,13 +216,11 @@ class GateController extends AbstractController
         $form = $this->createFormBuilderForContao('confirm_ca_au_jp');
         $form->add('next', HiddenType::class, ['data' => 'confirm']);
 
-        $form->add('accept', SubmitType::class, array(
+        $form->add('accept', SubmitType::class, [
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_continue'],
-            'attr' => array('class' => 'save'),
-        ));
+            'attr' => ['class' => 'save'],
+        ]);
 
         return $form;
     }
-
-
 }

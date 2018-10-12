@@ -1,11 +1,12 @@
 <?php
-/**
- * GIT SCHRANKEN-MODUL for Contao Open Source CMS
+
+declare(strict_types=1);
+
+/*
+ * Countrygate Bundle, 47GradNord - Agentur für Internetlösungen
  *
- * Copyright (C) 2018 47GradNord - Agentur für Internetlösungen
- *
- * @license    commercial
- * @author     Holger Neuner
+ * @copyright  Copyright (c) 2008-2018, 47GradNord - Agentur für Internetlösungen
+ * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['cg_gate'] = '
@@ -34,17 +35,17 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_select'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_select'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_select'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_select'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 // Disclaimer (DE, Others)
@@ -52,17 +53,17 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_disclaimer'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_disclaimer'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_disclaimer'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_disclaimer'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 // Disclaimer with Chechboxes (us)
@@ -70,69 +71,69 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_disclaimer_us'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_disclaimer_us'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_disclaimer_us'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_disclaimer_us'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_disclaimer_us_checkbox_1'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_disclaimer_us_checkbox_1'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_disclaimer_us_checkbox_1'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_disclaimer_us_checkbox_1'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_disclaimer_us_checkbox_2'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_disclaimer_us_checkbox_2'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_disclaimer_us_checkbox_2'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_disclaimer_us_checkbox_2'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_de_disclaimer_ca_au_jp'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_de_disclaimer_ca_au_jp'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['cg_en_disclaimer_ca_au_jp'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['cg_en_disclaimer_ca_au_jp'],
     'exclude' => true,
     'inputType' => 'textarea',
-    'eval' => array('mandatory'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true),
+    'eval' => ['mandatory' => true, 'rte' => 'tinyMCE', 'helpwizard' => true],
     'explanation' => 'insertTags',
-    'sql'=> "mediumtext NULL"
+    'sql' => 'mediumtext NULL',
 ];

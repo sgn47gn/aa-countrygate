@@ -1,16 +1,15 @@
 <?php
-/**
- * GIT SCHRANKEN-MODUL for Contao Open Source CMS
+
+declare(strict_types=1);
+
+/*
+ * Countrygate Bundle, 47GradNord - Agentur für Internetlösungen
  *
- * Copyright (C) 2018 47GradNord - Agentur für Internetlösungen
- *
- * @license    commercial
- * @author     Holger Neuner
+ * @copyright  Copyright (c) 2008-2018, 47GradNord - Agentur für Internetlösungen
+ * @author     47GradNord - Agentur für Internetlösungen <info@47gradnord.de>
  */
 
-
 namespace AaProjects\Countrygate\DependencyInjection;
-
 
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Configuration;
 use Symfony\Component\Config\FileLocator;
@@ -27,18 +26,18 @@ class CountrygateExtension extends Extension implements PrependExtensionInterfac
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration(true);
-        $config        = $this->processConfiguration($configuration, $configs);
-        $loader        = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $config = $this->processConfiguration($configuration, $configs);
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
 
     /**
-    * @param ContainerBuilder $container
+     * @param ContainerBuilder $container
      */
     public function prepend(ContainerBuilder $container)
     {
         $formExtension = $container->getExtensionConfig('form');
-        if($formExtension) {
+        if ($formExtension) {
             return;
         }
 

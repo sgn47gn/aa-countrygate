@@ -89,9 +89,8 @@ abstract class AbstractController extends Controller implements MainActionProvid
     {
         $r = [];
 
-        foreach($GLOBALS['TL_AA_COUNTRYS'] as $key => $value)
-        {
-            $r[$value['label'][$this->getLanguage()]] = $key ;
+        foreach ($GLOBALS['TL_AA_COUNTRYS'] as $key => $value) {
+            $r[$value['label'][$this->getLanguage()]] = $key;
         }
 
         return $r;
