@@ -13,7 +13,11 @@ declare(strict_types=1);
  * Frontend Module
  */
 $GLOBALS['FE_MOD']['countrygate']['cg_gate'] = 'AaProjects\Countrygate\Proxy\Module';
+$GLOBALS['FE_MOD']['countrygate']['cg_nav_extended'] = 'AaProjects\Countrygate\ModNavigationGatewayPassed';
 
+/**
+ * Configuration Countrys
+ */
 $GLOBALS['TL_AA_COUNTRYS'] = [
     'de' => [
         'label' => [

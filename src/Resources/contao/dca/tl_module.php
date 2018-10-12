@@ -20,6 +20,9 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['cg_gate'] = '
 {template_legend:hide},customTpl;
 {expert_legend:hide},guests,cssID,space';
 
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['cg_nav_extended'] = '{title_legend},name,headline,type;{nav_legend},levelOffset,showLevel,hardLimit,showProtected,showHidden;{reference_legend:hide},defineRoot;{template_legend:hide},navigationTpl,customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['jumpToGatePassed'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_module']['jumpToGatePassed'],
     'exclude' => true,
