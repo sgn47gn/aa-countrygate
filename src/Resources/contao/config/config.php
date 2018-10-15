@@ -13,51 +13,52 @@ declare(strict_types=1);
  * Frontend Module
  */
 $GLOBALS['FE_MOD']['countrygate']['cg_gate'] = 'AaProjects\Countrygate\Proxy\Module';
+$GLOBALS['FE_MOD']['countrygate']['cg_nav_extended'] = 'AaProjects\Countrygate\ModNavigationGatewayPassed';
 
-
+/**
+ * Configuration Countrys
+ */
 $GLOBALS['TL_AA_COUNTRYS'] = [
     'de' => [
         'label' => [
             'de' => 'Deutschland',
             'en' => 'Germany',
         ],
-        'pass' => true
+        'pass' => true,
     ],
     'us' => [
         'label' => [
             'de' => 'Vereinigte Statten von Amerika',
             'en' => 'United States of America',
         ],
-        'pass' => true
+        'pass' => true,
     ],
     'ca' => [
         'label' => [
             'de' => 'Kanada',
             'en' => 'Canada',
         ],
-        'pass' => false
+        'pass' => false,
     ],
     'au' => [
         'label' => [
             'de' => 'Australien',
             'en' => 'Australia',
         ],
-        'pass' => false
+        'pass' => false,
     ],
     'jp' => [
         'label' => [
             'de' => 'Japan',
             'en' => 'Japan',
         ],
-        'pass' => false
+        'pass' => false,
     ],
     'others' => [
         'label' => [
             'de' => 'Andere',
             'en' => 'Others',
         ],
-        'pass' => true
-    ]
+        'pass' => true,
+    ],
 ];
-
-
