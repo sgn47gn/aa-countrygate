@@ -106,10 +106,10 @@ class GateController extends AbstractController
         $formConfirmCaAuJp = $formConfirmCaAuJp->handleRequest($request);
 
         if ($formConfirmCaAuJp->isSubmitted() && $formConfirmCaAuJp->isValid()) {
-            $session['passed'] = true;
+            $session['passed'] = false;
             $this->sessionGate->setSession($session);
 
-            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
+            return $this->redirectToPage((int) $moduleSettings['jumpTo']);
         }
 
         // Compile
