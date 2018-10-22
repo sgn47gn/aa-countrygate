@@ -28,7 +28,7 @@ $GLOBALS['TL_AA_COUNTRYS'] = [
     ],
     'us' => [
         'label' => [
-            'de' => 'Vereinigte Statten von Amerika',
+            'de' => 'Vereinigte Staaten von Amerika',
             'en' => 'United States of America',
         ],
         'pass' => true,
