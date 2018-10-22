@@ -11,24 +11,37 @@
         {% endif %}
 
         {% if currentStep == 'confirm' %}
+
             {% if formConfirmDeOthers %}
-                {{ disclaimer|raw }}
                 {{ form_start(formConfirmDeOthers) }}
+                <div class="text">
+                    {{ disclaimer|raw }}
+                </div>
                 {{ form_end(formConfirmDeOthers) }}
             {% endif %}
 
             {% if formConfirmUs %}
                 {{ form_start(formConfirmUs) }}
 
-                {{ disclaimer_us|raw }}
+                <div class="text item1">
+                    {{ disclaimer_us|raw }}
+                </div>
 
-                {{ disclaimer_us_checkbox_1|raw }}
-                {{ form_label(formConfirmUs.confirm_check1) }}
-                {{ form_widget(formConfirmUs.confirm_check1, {'attr': {'class': 'form-control'}}) }}
+                <div class="text item2">
+                    <div class="form-widget">
+                        {{ form_label(formConfirmUs.confirm_check1) }}
+                        {{ form_widget(formConfirmUs.confirm_check1, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ disclaimer_us_checkbox_1|raw }}
+                </div>
 
-                {{ disclaimer_us_checkbox_2|raw }}
-                {{ form_label(formConfirmUs.confirm_check2) }}
-                {{ form_widget(formConfirmUs.confirm_check2, {'attr': {'class': 'form-control'}}) }}
+                <div class="text item3">
+                    <div class="form-widget">
+                        {{ form_label(formConfirmUs.confirm_check2) }}
+                        {{ form_widget(formConfirmUs.confirm_check2, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ disclaimer_us_checkbox_2|raw }}
+                </div>
 
                 {{ form_end(formConfirmUs) }}
             {% endif %}
@@ -36,7 +49,9 @@
             {% if formConfirmCaAuJp %}
                 {{ form_start(formConfirmCaAuJp) }}
 
-                {{ disclaimer_ca_au_jp|raw }}
+                <div class="text item1">
+                    {{ disclaimer_ca_au_jp|raw }}
+                </div>
 
                 {{ form_end(formConfirmCaAuJp) }}
             {% endif %}
