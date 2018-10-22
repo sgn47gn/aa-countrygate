@@ -14,6 +14,7 @@ declare(strict_types=1);
  */
 $GLOBALS['TL_LANG']['FMD']['countrygate'] = ['AA - Module'];
 $GLOBALS['TL_LANG']['FMD']['cg_gate'] = ['Länder-Schranke', 'Zeigt das Modul an.'];
+$GLOBALS['TL_LANG']['FMD']['cg_nav_extended'] = ['Angepasste Navigation', 'Zeigt das Modul an.'];
 
 /*
  * Mods
