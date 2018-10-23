@@ -69,6 +69,7 @@ class GateController extends AbstractController
 
         if ($formSelectCountry->isSubmitted() && $formSelectCountry->isValid()) {
             $session['country'] = $formSelectCountry->getData()['country'];
+            $session['us_second'] = false;
             $this->sessionGate->setSession($session);
 
             return $this->redirectToStep($formSelectCountry->getData()['next']);
