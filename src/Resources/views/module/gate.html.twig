@@ -46,6 +46,16 @@
                 {{ form_end(formConfirmUs) }}
             {% endif %}
 
+            {% if formConfirmUsSecond %}
+                {{ form_start(formConfirmUsSecond) }}
+
+                <div class="text item1">
+                    {{ disclaimer|raw }}
+                </div>
+                {{ form_end(formConfirmUsSecond) }}
+
+            {% endif %}
+
             {% if formConfirmCaAuJp %}
                 {{ form_start(formConfirmCaAuJp) }}
 

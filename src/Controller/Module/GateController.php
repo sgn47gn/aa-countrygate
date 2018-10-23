@@ -69,6 +69,7 @@ class GateController extends AbstractController
 
         if ($formSelectCountry->isSubmitted() && $formSelectCountry->isValid()) {
             $session['country'] = $formSelectCountry->getData()['country'];
+            $session['us_second'] = false;
             $this->sessionGate->setSession($session);
 
             return $this->redirectToStep($formSelectCountry->getData()['next']);
@@ -83,7 +84,7 @@ class GateController extends AbstractController
             $session['passed'] = true;
             $this->sessionGate->setSession($session);
 
-            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
+            return $this->redirectToStep($formSelectCountry->getData()['next']);
         }
 
         // Handle Form Confirm US
@@ -93,11 +94,20 @@ class GateController extends AbstractController
 
         if ($formConfirmUs->isSubmitted() && $formConfirmUs->isValid()) {
             if ($formConfirmUs->getData()['confirm_check1'] && $formConfirmUs->getData()['confirm_check2']) {
-                $session['passed'] = true;
+                $session['us_second'] = true;
                 $this->sessionGate->setSession($session);
 
-                return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
+                return $this->redirectToStep($formConfirmUs->getData()['next']);
             }
+        }
+
+        // Handle Form Confirm US Second
+        $formConfirmUsSeondstep = $this->getFormConfirmUsSecondstep();
+        $formConfirmUsSeondstep = $formConfirmUsSeondstep->getForm();
+        $formConfirmUsSeondstep = $formConfirmUsSeondstep->handleRequest($request);
+
+        if ($formConfirmUsSeondstep->isSubmitted() && $formConfirmUsSeondstep->isValid()) {
+            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
         }
 
         // Handle Form Confirm Canada Australien Japan
@@ -118,7 +128,8 @@ class GateController extends AbstractController
             'currentStep' => $this->autoItem,
             'formSelectCountry' => ('select' === $this->autoItem) ? $formSelectCountry->createView() : false,
             'formConfirmDeOthers' => ('de' === $session['country'] || 'others' === $session['country']) ? $formConfirmDeOthers->createView() : false,
-            'formConfirmUs' => ('us' === $session['country']) ? $formConfirmUs->createView() : false,
+            'formConfirmUs' => ('us' === $session['country'] && !$session['us_second']) ? $formConfirmUs->createView() : false,
+            'formConfirmUsSecond' => ('us' === $session['country'] && $session['us_second']) ? $formConfirmUsSeondstep->createView() : false,
             'formConfirmCaAuJp' => ('ca' === $session['country'] || 'au' === $session['country'] || 'jp' === $session['country']) ? $formConfirmCaAuJp->createView() : false,
             'select' => $this->getModuleTextContent('select', $moduleSettings),
             'disclaimer' => $this->getModuleTextContent('disclaimer', $moduleSettings),
@@ -198,6 +209,23 @@ class GateController extends AbstractController
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
             'required' => true,
         ]);
+
+        $form->add('accept', SubmitType::class, [
+            'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
+            'attr' => ['class' => 'save'],
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @return FormBuilderInterface
+     */
+    protected function getFormConfirmUsSecondstep()
+    {
+        /** @var FormBuilderInterface $form */
+        $form = $this->createFormBuilderForContao('confirm_us_second');
+        $form->add('next', HiddenType::class, ['data' => 'confirm']);
 
         $form->add('accept', SubmitType::class, [
             'label' => $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'],
