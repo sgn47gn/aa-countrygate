@@ -83,8 +83,7 @@ class GateController extends AbstractController
         if ($formConfirmDeOthers->isSubmitted() && $formConfirmDeOthers->isValid()) {
             $session['passed'] = true;
             $this->sessionGate->setSession($session);
-
-            return $this->redirectToStep($formSelectCountry->getData()['next']);
+            return $this->redirectToPage((int) $moduleSettings['jumpToGatePassed']);
         }
 
         // Handle Form Confirm US
