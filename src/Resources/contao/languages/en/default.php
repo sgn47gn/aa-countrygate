@@ -12,8 +12,8 @@ declare(strict_types=1);
 /**
  * Mods.
  */
-$GLOBALS['TL_LANG']['CGW']['selectform_label_country'] = 'EN Land auswählen';
-$GLOBALS['TL_LANG']['CGW']['selectform_label_save'] = 'EN weiter';
+$GLOBALS['TL_LANG']['CGW']['selectform_label_country'] = 'Select Country';
+$GLOBALS['TL_LANG']['CGW']['selectform_label_save'] = 'Next';
 
 $GLOBALS['TL_LANG']['CGW']['selectform_label_accept'] = 'I agree';
 $GLOBALS['TL_LANG']['CGW']['selectform_label_notaccept'] = 'I do not agree';
